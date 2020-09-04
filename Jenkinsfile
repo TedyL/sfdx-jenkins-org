@@ -29,6 +29,11 @@ node {
 
  	withEnv(["HOME=${env.WORKSPACE}"]) {	
 	    echo "step 3.1"
+		echo "${SF_CONSUMER_KEY}"
+		echo "${SF_USERNAME}"
+		echo "${SERVER_KEY_CREDENTIALS_ID}"
+		echo "${toolbelt}"
+		echo "${SF_INSTANCE_URL}"
 	    withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
 		// -------------------------------------------------------------------------
 		// Authenticate to Salesforce using the server key.
