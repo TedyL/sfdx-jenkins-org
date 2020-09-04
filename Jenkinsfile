@@ -38,6 +38,17 @@ node {
             }
 
 
+
+            // -------------------------------------------------------------------------
+            // Deploy metadata and execute unit tests.
+            // -------------------------------------------------------------------------
+            stage('Deploy To Demo Org') {
+                rc = command "${toolbelt}/sfdx force:source:deploy --manifest manifest/package.xml --testlevel ${TEST_LEVEL}"
+                if (rc != 0) {
+                    error 'Salesforce push to demo org failed.'
+                }
+            }
+            /*
             // -------------------------------------------------------------------------
             // Deploy metadata and execute unit tests.
             // -------------------------------------------------------------------------
@@ -68,7 +79,7 @@ node {
                     error 'Salesforce unit test run in test scratch org failed.'
                 }
             }
-
+            */
 	    }
 	}
 }
