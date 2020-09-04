@@ -9,7 +9,7 @@ node {
     def TEST_LEVEL='RunLocalTests'
     def SF_INSTANCE_URL = env.HCP_SF_INSTANCE_URL ?: "https://test.salesforce.com"
 
-
+    echo "step 1"
     def toolbelt = tool 'toolbelt'
 
 
@@ -20,25 +20,26 @@ node {
     stage('checkout source') {
         checkout scm
     }
-
-
+ 
+    echo "step 2"
     // -------------------------------------------------------------------------
     // Run all the enclosed stages with access to the Salesforce
     // JWT key credentials.
     // -------------------------------------------------------------------------
 
  	withEnv(["HOME=${env.WORKSPACE}"]) {	
-	
+	    echo "step 3.1"
 	    withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
 		// -------------------------------------------------------------------------
 		// Authenticate to Salesforce using the server key.
 		// -------------------------------------------------------------------------
-
+                echo "step 3.2"
 		stage('Authorize to Salesforce') {
 			rc = command "${toolbelt}/sfdx force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
 		    if (rc != 0) {
 			error 'Salesforce org authorization failed.'
 		    }
+			echo "step 3.3"
 		}
 
 
@@ -51,6 +52,7 @@ node {
 		    if (rc != 0) {
 			error 'Salesforce deploy and test run failed.'
 		    }
+			echo "step 3.4"
 		}
 
 
@@ -67,7 +69,7 @@ node {
 	    }
 	}
 }
-
+echo "step 3.5"
 def command(script) {
     if (isUnix()) {
         return sh(returnStatus: true, script: script);
