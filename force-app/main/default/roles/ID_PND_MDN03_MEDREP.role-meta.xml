@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>ID_PND_MDN03_MEDREP</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>ID_DSM_NS02</parentRole>
+</Role>

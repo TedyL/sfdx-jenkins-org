@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>VN-MND-ESM-03-DM-02</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>VN-MND-ESM-03-DM-02</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>VN_MND_ESM_03</parentRole>
+</Role>
