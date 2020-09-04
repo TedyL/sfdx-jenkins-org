@@ -2,12 +2,12 @@
 
 node {
 
-    def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
-    def SF_USERNAME=env.SF_USERNAME
-    def SERVER_KEY_CREDENTIALS_ID=env.SERVER_KEY_CREDENTIALS_ID
+    def SF_CONSUMER_KEY=env.HCP_SF_CONSUMER_KEY
+    def SF_USERNAME=env.HCP_SF_USERNAME
+    def SERVER_KEY_CREDENTIALS_ID=env.HCP_SERVER_KEY_CREDENTIALS_ID
     def DEPLOYDIR='src'
     def TEST_LEVEL='RunLocalTests'
-    def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://test.salesforce.com"
+    def SF_INSTANCE_URL = env.HCP_SF_INSTANCE_URL ?: "https://test.salesforce.com"
 
 
     def toolbelt = tool 'toolbelt'
