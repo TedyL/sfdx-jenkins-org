@@ -37,7 +37,12 @@ node {
                 }
             }
 
-
+            stage('Display Demo Org') {
+                rc = command "${toolbelt}/sfdx force:org:display --targetusername Demo"
+                if (rc != 0) {
+                    error 'Salesforce demo org display failed.'
+                }
+            }
 
             // -------------------------------------------------------------------------
             // Deploy metadata and execute unit tests.
